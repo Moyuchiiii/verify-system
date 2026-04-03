@@ -31,9 +31,10 @@
 
 ## ファイル配置
 
-- 検証したいレポート: `input/reports/`
-- 検証したいPDF: `input/pdfs/`
-- 検証結果: `output/YYYY-MM-DD/`
+- 検証したいファイル（MD・HTML・PDF混在可）: `input/`
+- 検証結果 + 処理済みファイル: `output/YYYY-MM-DD/`
+
+処理が完了したファイルは `input/` から `output/YYYY-MM-DD/` に移動する。
 
 ## 出力形式
 

@@ -13,7 +13,7 @@ trigger: /pdf-scan
 ```
 
 例:
-- `/pdf-scan input/pdfs/article.pdf`
+- `/pdf-scan input/article.pdf`
 
 ## 実行フロー
 
@@ -25,6 +25,7 @@ trigger: /pdf-scan
    - 因果関係の主張（「〜が原因で〜になった」等）
    - 引用・参照している外部情報
 3. **fact-checkに引き渡す**: 抽出したクレームリストをfact-checkスキルに渡す
+4. **ファイル移動**: 処理完了後、PDFを `input/` から `output/YYYY-MM-DD/` に移動する
 
 ## 注意事項
 
