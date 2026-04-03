@@ -7,6 +7,10 @@
 
 ## [Unreleased]
 
+---
+
+## [dev1.0.0] - 2026-04-03
+
 ### Added
 - investigator エージェント（証拠収集・強度分類）
 - verifier エージェント（ACH競合仮説分析）
