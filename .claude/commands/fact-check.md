@@ -1,6 +1,6 @@
 ---
 name: fact-check
-description: テキストまたはMarkdownレポートのファクトチェックを実行する。investigator→verifier→document-reviewerの順で処理し、対応するHTMLも修正する。
+description: input/内のファイルをすべて自動検出してファクトチェックを実行する。investigator→verifier→document-reviewerの順で処理し、対応するHTMLも修正する。
 trigger: /fact-check
 ---
 
@@ -9,16 +9,18 @@ trigger: /fact-check
 ## 使い方
 
 ```
-/fact-check [ファイルパス or テキスト]
+/fact-check
 ```
 
-例:
-- `/fact-check input/report.md`
-- `/fact-check "AIの世界市場は2025年に1兆ドルを超えた"`
+ファイルパス指定不要。`input/` 内のファイルをすべて自動で処理する。
 
 ## 実行フロー
 
-1. **クレーム抽出**: 対象MDから検証すべき主張を箇条書きで抽出する
+1. **ファイル検出**: `input/` 内の全ファイルを一覧取得する（.gitkeep は除外）
+   - MDファイルをファクトチェックの対象とする
+   - 同名のHTMLファイルがあれば対にして管理する
+   - PDFファイルがあれば `/pdf-scan` と同様に処理する
+2. **クレーム抽出**: 対象ファイルから検証すべき主張を箇条書きで抽出する
 2. **investigator起動**: 各クレームに対して証拠収集を並列実行する
 3. **verifier起動**: 収集した証拠に対してACH分析を実行する
 4. **document-reviewer起動**: 全クレームの判定結果を統合してスコアリングする
