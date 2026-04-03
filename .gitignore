@@ -1,0 +1,13 @@
+# 入力ファイル（個人文書・機密情報を含む可能性があるため除外）
+input/reports/*
+input/pdfs/*
+!input/reports/.gitkeep
+!input/pdfs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
